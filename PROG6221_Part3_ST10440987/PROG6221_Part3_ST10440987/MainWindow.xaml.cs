@@ -18,6 +18,8 @@ namespace PROG6221_Part3_ST10440987
     {
         public Chatbot chatbot;
         private bool validName = false;
+        private bool taskDeleted = true;
+        private bool taskCompleted = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -57,7 +59,74 @@ namespace PROG6221_Part3_ST10440987
                 UserInput.Clear();
                 UserInput.Focus();
                 return;
+            }
 
+            if (UserInput.Text.Trim().ToLower() == "mark as complete" && chatbot.tasks.Count > 0)
+            {
+                this.taskCompleted = false;
+                ChatHistory.AppendText("\nChatbot: Please enter the task number you would like to mark as complete (E.g: 1, 2 or 3)\n");
+                ChatHistory.ScrollToEnd();
+                UserInput.Clear();
+                UserInput.Focus();
+                return;
+            }
+
+            if (!this.taskCompleted)
+            {
+                this.taskCompleted = true;
+                if (int.TryParse(UserInput.Text.Trim(), out int taskNumber))
+                {
+                    if (taskNumber >= 1 && taskNumber <= chatbot.tasks.Count)
+                    {
+                        var completedTask = chatbot.tasks[taskNumber - 1];
+                        completedTask.taskCompleted = "Completed";
+                        ChatHistory.AppendText($"Chatbot: Task {taskNumber} with title {completedTask.title} has been marked as complete successfully\n\n");
+                        //chatbot.activityLog.Add($"Task: Task {taskNumber} marked as complete");
+                    }
+                    else
+                    {
+                        this.taskCompleted = false;
+                        ChatHistory.AppendText("Chatbot: Invalid task number. Please enter a valid task number\n");
+                    }
+                }
+                ChatHistory.ScrollToEnd();
+                UserInput.Clear();
+                UserInput.Focus();
+                return;
+            }
+
+            if (UserInput.Text.Trim().ToLower() == "delete" && chatbot.tasks.Count > 0)
+            {
+                this.taskDeleted = false;
+                ChatHistory.AppendText("\nChatbot: Please enter the task number you would like to delete (E.g: 1, 2 or 3)\n");
+                ChatHistory.ScrollToEnd();
+                UserInput.Clear();
+                UserInput.Focus();
+                return;
+            }
+
+            if (!this.taskDeleted)
+            {
+                this.taskDeleted = true;
+                if (int.TryParse(UserInput.Text.Trim(), out int taskNumber))
+                {
+                    if (taskNumber >= 1 && taskNumber <= chatbot.tasks.Count)
+                    {
+                        var deletedTask = chatbot.tasks[taskNumber - 1];
+                        chatbot.tasks.RemoveAt(taskNumber - 1);
+                        ChatHistory.AppendText($"Chatbot: Task {taskNumber} with title {deletedTask.title} has been deleted successfully\n\n");
+                        //chatbot.activityLog.Add($"Task: Task {taskNumber} deleted");
+                    }
+                    else
+                    {
+                        this.taskDeleted = false;
+                        ChatHistory.AppendText("Chatbot: Invalid task number. Please enter a valid task number\n");
+                    }
+                }
+                ChatHistory.ScrollToEnd();
+                UserInput.Clear();
+                UserInput.Focus();
+                return;
             }
 
             string botResponse = chatbot.ChatBotConversation(userInput);
@@ -74,6 +143,31 @@ namespace PROG6221_Part3_ST10440987
                 e.Handled = true;
                 SendButton_Click(null, null);
             }
+        }
+
+        public void ViewTasksButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (chatbot.tasks.Count == 0)
+            {
+                ChatHistory.AppendText("Chatbot: You currently do not have any existing tasks");
+            }
+            else
+            {
+                ChatHistory.AppendText($"Chatbot: These are your existing tasks below:\n");
+
+                int count = 1;
+                foreach (var task in chatbot.tasks)
+                {
+                    ChatHistory.AppendText($"Task {count}:\n");
+                    ChatHistory.AppendText($"{task.title}\n{task.taskDescription}\n{task.reminderText}\n{task.taskCompleted}\n\n");
+                    count++;
+                }
+                ChatHistory.AppendText("To mark a task as Complete, please type in mark as complete\n");
+                ChatHistory.AppendText("If you would like to delete any tasks, just type in the word delete\n");
+            }
+            ChatHistory.ScrollToEnd();
+            UserInput.Clear();
+            UserInput.Focus();
         }
     }
 }

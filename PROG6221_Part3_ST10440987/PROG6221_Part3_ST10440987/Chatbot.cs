@@ -40,8 +40,13 @@ namespace PROG6221_Part3_ST10440987
         };
         public string name;
         public string lastTopic = null;
+        public string taskDescription = "";
+        private string awaitingReminder = "none";
 
         public bool exitConfirmation = false;
+
+        public List<TasksClass> tasks = new List<TasksClass>();
+        public TasksClass currentTask = null;
 
         // ----------------------------------------------------------------------------- //
         // Default Constructor for the ChatBot class
@@ -361,6 +366,110 @@ namespace PROG6221_Part3_ST10440987
             if (string.IsNullOrWhiteSpace(userInput))
             {
                 return "Chatbot: " + this.name + ", please enter a valid input.";
+            }
+
+            if (this.currentTask != null && this.awaitingReminder == "askYesOrNo")
+            {
+                if (userInput.ToLower().Contains("yes") || userInput.ToLower().Contains("y"))
+                {
+                    this.awaitingReminder = "awaitingReminderTime";
+                    //this.activityLog.Add($"Task Added: {this.currentTask.title} for {this.currentTask.reminderText}");
+                    return "Chatbot: Great, what reminder would you like to add to this task? (E.g: 7 days or 4 hours)";
+                }
+                else if (userInput.ToLower().Contains("no") || userInput.ToLower().Contains("n"))
+                {
+                    this.awaitingReminder = "none";
+                    //this.activityLog.Add($"Task Added: {this.currentTask.title} with {this.currentTask.reminderText}");
+                    this.currentTask = null;
+                    return "Chatbot: Not a problem, your task has then been successfully added without a reminder";
+                }
+                else
+                {
+                    return "Chatbot: Please respond with a yes or a no if you would like to add a reminder to your task";
+                }
+            }
+
+            if (this.currentTask != null && this.awaitingReminder == "awaitingReminderTime")
+            {
+                this.currentTask.reminderText = userInput.Trim();
+                DateTime date;
+
+                if (DateTime.TryParse(userInput.Trim(), out date))
+                {
+                    this.currentTask.reminder = date;
+                    this.currentTask.reminderText = date.ToString("yyyy-MM-dd");
+                }
+                else
+                {
+                    int number;
+                    if (int.TryParse(new string(userInput.Trim().Where(char.IsDigit).ToArray()), out number))
+                    {
+                        if (userInput.Trim().Contains("day"))
+                        {
+                            this.currentTask.reminder = DateTime.Now.AddDays(number);
+                            this.currentTask.reminderText = $"{number} day(s)";
+                        }
+                        else if (userInput.Trim().Contains("hour"))
+                        {
+                            this.currentTask.reminder = DateTime.Now.AddHours(number);
+                            this.currentTask.reminderText = $"{number} hour(s)";
+                        }
+                        else
+                        {
+                            return "Chatbot: Please enter a valid time like '5 days' or '2 hours' or a date like '2025-07-01'.";
+                        }
+                    }
+                    else
+                    {
+                        return "Chatbot: I couldn't understand the reminder. Please try '3 days', '2 hours', or '2025-07-01'.";
+                    }
+                }
+                string title = this.currentTask.title;
+                this.currentTask = null;
+                this.awaitingReminder = "none";
+                return $"Chatbot: Reminder set for your task '{title}'. Click the View/Manage Tasks button to see your existing tasks.";
+            }
+
+            string userRequests = @"\b((add|add a) task|task|(set a|set) reminder|remind me|remind|reminder|(add|add a) reminder|quiz)\b";
+            Match match = Regex.Match(userInput.ToLower(), userRequests);
+            if (match.Success)
+            {
+                if (match.Value == "quiz")
+                {
+                    return "Please click the 'Start Quiz' Button to do a quiz on Cybersecurity";
+                }
+
+                string actualTask = userInput.ToLower().Substring(match.Index + match.Length).Trim();
+
+                if (!string.IsNullOrEmpty(actualTask))
+                {
+                    this.taskDescription = actualTask;
+                    this.currentTask = new TasksClass
+                    {
+                        title = this.taskDescription,
+                        taskDescription = this.taskDescription,
+                        reminder = null,
+                        reminderText = "No reminder set",
+                        taskCompleted = "Incomplete"
+                    };
+                    this.tasks.Add(this.currentTask);
+
+                    if (match.Value.Contains("task"))
+                    {
+                        this.awaitingReminder = "askYesOrNo";
+                        return $"Chatbot: Task added successfully with the description '{this.taskDescription}'. Would you like to add a reminder to this task? (yes/no)";
+                    }
+                    else if (match.Value.Contains("reminder") || match.Value.Contains("remind"))
+                    {
+                        this.awaitingReminder = "awaitingReminderTime";
+                        //this.activityLog.Add($"Reminder Set: '{this.currentTask.title}' for {this.currentTask.reminderText}");
+                        return $"Chatbot: Task has been created with title {this.currentTask.title}. Please enter the reminder that you wish to set for this task";
+                    }
+                }
+                else
+                {
+                    return "Chatbot: Please provide a valid task description (E.g. add task - review settings or add task review system settings)";
+                }
             }
 
             if (this.exitConfirmation)

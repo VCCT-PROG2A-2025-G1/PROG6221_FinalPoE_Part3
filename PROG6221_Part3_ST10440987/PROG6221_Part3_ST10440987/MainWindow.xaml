@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG6221_Part3_ST10440987"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="910">
+        Title="MainWindow" Height="450" Width="930">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -24,8 +24,8 @@
              Foreground="Lime"/>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="Black">
-            <TextBox x:Name="UserInput" Width="785" Height="30" Margin="10 10 10 10" KeyDown="Enter_KeyDown" Background="DimGray" Foreground="White"/>
-            <!--<Button x:Name="ViewTasksButton" Content="View/Manage Tasks" Width="115" Margin="0 10 10 10" Click="ViewTasksButton_Click" Background="Purple" Foreground="White"/>-->
+            <TextBox x:Name="UserInput" Width="685" Height="30" Margin="10 10 10 10" KeyDown="Enter_KeyDown" Background="DimGray" Foreground="White"/>
+            <Button x:Name="ViewTasksButton" Content="View/Manage Tasks" Width="115" Margin="0 10 10 10" Click="ViewTasksButton_Click" Background="Purple" Foreground="White"/>
             <!--<Button x:Name="QuizButton" Content="Play Quiz Game" Width="100" Margin="0 10 10 10" Click="QuizButton_Click" Background="DarkCyan" Foreground="Black"/>-->
             <Button x:Name="sendButton" Content="Send" Width="80" Margin="0 10 10 10" Click="SendButton_Click" Background="Lime"/>
         </StackPanel>
