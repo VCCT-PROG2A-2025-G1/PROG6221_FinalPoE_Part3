@@ -21,6 +21,7 @@ jobs:
 
       - name: Build Project
         run: dotnet build --configuration Release
+        working-directory: PROG6221_Part3_ST10440987
 
       - name: Run Test
         run: dotnet test --no-build --verbosity normal
