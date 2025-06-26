@@ -24,7 +24,7 @@ jobs:
         working-directory: PROG6221_Part3_ST10440987
 
       - name: Run Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test PROG6221_FinalPoE_Part3/PROG6221_Part3_ST10440987 --no-build --verbosity normal
 
       - name: Check Code Formatting
         run: dotnet format --severity warn
