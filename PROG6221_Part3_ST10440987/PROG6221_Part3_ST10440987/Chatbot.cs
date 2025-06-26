@@ -45,6 +45,9 @@ namespace PROG6221_Part3_ST10440987
 
         public bool exitConfirmation = false;
 
+        public List<string> questions;
+        public List<string> answers;
+        public List<string> explanations;
         public List<TasksClass> tasks = new List<TasksClass>();
         public TasksClass currentTask = null;
 
@@ -354,6 +357,53 @@ namespace PROG6221_Part3_ST10440987
                         "fascinated", "intrigued", "eager to know", "wondering", "keen"
                     }
                 }
+            };
+
+            this.questions = new List<string>
+            {
+                "Which of the following is the strongest Password?\na) YourBirthdayYYYY\nb) Password123\nc) CeGrh67Ds$\nd) 12345678",
+                "True of False:\nPublic Wi-Fi networks are generally less secure than a private home network.",
+                "What is Phishing?\na) A technique used by hackers to test network security.\nb) The act of sending deceptive communications " +
+                    "to trick individuals into revealing sensitive information.\nc) A type of malware that encrypts your files and demands payment.\n" +
+                    "d) A method for securely backing up your data online.",
+                "True or False:\nTwo-Factor Authentication (2FA) adds an extra layer of security to your accounts.",
+                "Social Engineering primarily relies on what to gain unauthorized access or information?\na) Complex coding and hacking tools.\n" +
+                    "b) Exploring technical vulnerabilities in systems.\nc) Manipulating people through psychological tactics.\nd) Brute-forcing passwords.",
+                "True or False:\nIf a website's address starts with 'http://' instead of 'https://', it means the connection is likely secure.",
+                "What is the primary purpose of a Virtual Private Network (VPN) when browsing online?\na) To speed up your internet connection.\nb) To" +
+                    " block all advertisements\nc) To encrypt your internet traffic and hide your IP Address\nd) to scan your computer for viruses",
+                "True or False:\nIts safe to click on links in emails from unknown senders if the subject line seems interesting.",
+                "Which of these is a common indicator that an email might be a phishing attempt?\na) It comes from a well known company\nb) It contains" +
+                    " a generic greeting like 'Dear Customer'\nc) It has perfect grammar and spelling\nd) It asks you to verify your account information by clicking a link",
+                "True or False:\nUsing the same password for multiple online accounts is a good way to remember them all easily."
+            };
+
+            this.answers = new List<string>
+            {
+                "c",
+                "true",
+                "b",
+                "true",
+                "c",
+                "false",
+                "c",
+                "false",
+                "d",
+                "false"
+            };
+
+            this.explanations = new List<string>
+            {
+                "Strong passwords use a mix of characters. 'CeGrh67Ds$' is complex and hard to guess.",
+                "True – Public Wi-Fi is often unsecured and can expose your data to attackers.",
+                "Phishing tricks people into giving up sensitive information like passwords or bank details.",
+                "True – 2FA adds an extra layer of protection beyond just a password.",
+                "Social engineering manipulates people, not systems, to gain access.",
+                "False – 'http://' is not secure. Always look for 'https://' when entering sensitive info.",
+                "VPNs encrypt your internet traffic, making it harder to track or intercept.",
+                "False – Links in unknown emails can lead to malicious websites. Always be cautious.",
+                "A generic greeting is a red flag. Phishing emails often use vague terms like 'Dear Customer'.",
+                "False – Reusing passwords makes it easier for hackers to break into multiple accounts."
             };
         }
 

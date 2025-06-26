@@ -169,5 +169,15 @@ namespace PROG6221_Part3_ST10440987
             UserInput.Clear();
             UserInput.Focus();
         }
+
+        public void QuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuizWindow quiz = new QuizWindow(this, this.chatbot);
+            quiz.Show();
+            quiz.QuizHistory.AppendText($"Hi there {chatbot.name}! Welcome to the CyberSecurity quiz game.\n\nAbout the Game: This quiz consists of " +
+                $"10 questions, 5 multiple choice and 5 True or False questions.\n\nInstructions: You must answer by choosing which you think is correct. " +
+                $"For the multiple choice, just type a, b, c or d and true or false for the True or False questions.\n\nPlease hit the Submit Answer Button to start the Quiz.");
+            this.Hide();
+        }
     }
 }

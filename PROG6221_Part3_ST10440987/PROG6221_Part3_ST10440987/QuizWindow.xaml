@@ -1,0 +1,33 @@
+﻿<Window x:Class="PROG6221_Part3_ST10440987.QuizWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG6221_Part3_ST10440987"
+        mc:Ignorable="d"
+        Title="QuizWindow" Height="450" Width="920">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="QuizHistory" 
+             FontFamily="Consolas"
+             Grid.Row="0" 
+             Margin="0 0 0 0" 
+             VerticalScrollBarVisibility="Auto" 
+             IsReadOnly="True" 
+             TextWrapping="Wrap" 
+             AcceptsReturn="True"
+             Background="Black"
+             Foreground="Lime"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="Black">
+            <TextBox x:Name="UserAnswer" Width="540" Height="30" Margin="10 10 10 10" KeyDown="Enter_KeyDown" Background="DimGray" Foreground="White"/>
+            <Button x:Name="StartQuizButton" Content="Start Quiz" Width="105" Margin="0 10 10 10" Click="StartQuizButton_Click" Background="Purple" Foreground="White"/>
+            <Button x:Name="AnswerButton" Content="Submit Answer" Width="105" Margin="0 10 10 10" Click="SubmitAnswerButton_Click" Background="Lime" Foreground="Black"/>
+            <Button x:Name="BackToChatbotButton" Content="Back to ChatBot" Width="105" Margin="0 10 10 10" Click="BackToChatbotButton_Click" Background="DarkCyan" Foreground="Black"/>
+        </StackPanel>
+    </Grid>
+</Window>
