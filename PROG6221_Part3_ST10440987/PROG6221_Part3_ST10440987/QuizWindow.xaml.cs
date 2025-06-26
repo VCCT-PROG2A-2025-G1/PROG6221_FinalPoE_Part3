@@ -25,6 +25,7 @@ namespace PROG6221_Part3_ST10440987
         public List<string> answers;
         public List<string> explanations;
         public List<int> remainingQuestionsIndex;
+        public List<string> activityLog;
         public int currentQuestionIndex;
         private int totalScore = 0;
         public QuizWindow(MainWindow mainWindow, Chatbot chatbot)
@@ -35,6 +36,7 @@ namespace PROG6221_Part3_ST10440987
             this.answers = chatbot.answers;
             this.explanations = chatbot.explanations;
             this.currentQuestionIndex = -1;
+            this.activityLog = chatbot.activityLog;
             this.remainingQuestionsIndex = Enumerable.Range(0, this.questions.Count).ToList();
             UserAnswer.Focus();
             this.mainWindow = mainWindow;
@@ -44,7 +46,7 @@ namespace PROG6221_Part3_ST10440987
         {
             if (this.currentQuestionIndex == -1)
             {
-                //this.chatbot.activityLog.Add("Quiz: Quiz Started");
+                this.chatbot.activityLog.Add("Quiz: Quiz Started");
                 this.NextQuestion();
             }
         }
@@ -83,8 +85,8 @@ namespace PROG6221_Part3_ST10440987
 
         public void BackToChatbotButton_Click(object sender, RoutedEventArgs e)
         {
-            //this.chatbot.activityLog.Add($"Quiz Ended or Completed: {10 - this.remainingQuestionsIndex.Count} questions answered. {this.totalScore} out " +
-            //$"of {10 - this.remainingQuestionsIndex.Count}");
+            this.chatbot.activityLog.Add($"Quiz Ended or Completed: {10 - this.remainingQuestionsIndex.Count} questions answered. {this.totalScore} out " +
+            $"of {10 - this.remainingQuestionsIndex.Count}");
             this.Close();
             mainWindow.Show();
             mainWindow.UserInput.Focus();

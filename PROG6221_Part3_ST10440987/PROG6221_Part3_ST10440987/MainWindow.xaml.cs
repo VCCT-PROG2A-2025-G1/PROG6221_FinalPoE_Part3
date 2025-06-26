@@ -81,7 +81,7 @@ namespace PROG6221_Part3_ST10440987
                         var completedTask = chatbot.tasks[taskNumber - 1];
                         completedTask.taskCompleted = "Completed";
                         ChatHistory.AppendText($"Chatbot: Task {taskNumber} with title {completedTask.title} has been marked as complete successfully\n\n");
-                        //chatbot.activityLog.Add($"Task: Task {taskNumber} marked as complete");
+                        chatbot.activityLog.Add($"Task: Task {taskNumber} marked as complete");
                     }
                     else
                     {
@@ -115,7 +115,7 @@ namespace PROG6221_Part3_ST10440987
                         var deletedTask = chatbot.tasks[taskNumber - 1];
                         chatbot.tasks.RemoveAt(taskNumber - 1);
                         ChatHistory.AppendText($"Chatbot: Task {taskNumber} with title {deletedTask.title} has been deleted successfully\n\n");
-                        //chatbot.activityLog.Add($"Task: Task {taskNumber} deleted");
+                        chatbot.activityLog.Add($"Task: Task {taskNumber} deleted");
                     }
                     else
                     {

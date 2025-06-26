@@ -48,6 +48,7 @@ namespace PROG6221_Part3_ST10440987
         public List<string> questions;
         public List<string> answers;
         public List<string> explanations;
+        public List<string> activityLog = new List<string>();
         public List<TasksClass> tasks = new List<TasksClass>();
         public TasksClass currentTask = null;
 
@@ -418,6 +419,26 @@ namespace PROG6221_Part3_ST10440987
                 return "Chatbot: " + this.name + ", please enter a valid input.";
             }
 
+            string showActivityLog = @"\b(show me what you have done|what have you done for me|(show|show me the) activity log)\b";
+            Match matchActivity = Regex.Match(userInput.ToLower(), showActivityLog);
+            if (matchActivity.Success)
+            {
+                if (this.activityLog.Count == 0)
+                {
+                    return "Sorry, there are no activities that have been logged as of this moment in time";
+                }
+                else
+                {
+                    var recentActivityLog = this.activityLog.TakeLast(7).ToList();
+                    string lastActivities = "Here's a summary of recent actions:\n";
+                    for (int i = 0; i < recentActivityLog.Count; i++)
+                    {
+                        lastActivities += $"{i + 1}. {recentActivityLog[i]}\n";
+                    }
+                    return lastActivities;
+                }
+            }
+
             if (this.currentTask != null && this.awaitingReminder == "askYesOrNo")
             {
                 if (userInput.ToLower().Contains("yes") || userInput.ToLower().Contains("y"))
@@ -512,7 +533,7 @@ namespace PROG6221_Part3_ST10440987
                     else if (match.Value.Contains("reminder") || match.Value.Contains("remind"))
                     {
                         this.awaitingReminder = "awaitingReminderTime";
-                        //this.activityLog.Add($"Reminder Set: '{this.currentTask.title}' for {this.currentTask.reminderText}");
+                        this.activityLog.Add($"Reminder Set: '{this.currentTask.title}' for {this.currentTask.reminderText}");
                         return $"Chatbot: Task has been created with title {this.currentTask.title}. Please enter the reminder that you wish to set for this task";
                     }
                 }
