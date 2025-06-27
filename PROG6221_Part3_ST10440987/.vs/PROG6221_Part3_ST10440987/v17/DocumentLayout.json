@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|solutionrelative:prog6221_part3_st10440987\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\chatbot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|solutionrelative:prog6221_part3_st10440987\\chatbot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\quizwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|solutionrelative:prog6221_part3_st10440987\\quizwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|solutionrelative:prog6221_part3_st10440987\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\quizwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|solutionrelative:prog6221_part3_st10440987\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|c:\\users\\patri\\onedrive\\desktop\\prog6221_finalpoe_part3\\prog6221_part3_st10440987\\prog6221_part3_st10440987\\quizwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B4368EA-2021-4F89-8F54-31D5813E07E3}|PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987.csproj|solutionrelative:prog6221_part3_st10440987\\quizwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,63 +38,61 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "QuizWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\QuizWindow.xaml.cs",
               "RelativeDocumentMoniker": "PROG6221_Part3_ST10440987\\QuizWindow.xaml.cs",
               "ToolTip": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\QuizWindow.xaml.cs",
               "RelativeToolTip": "PROG6221_Part3_ST10440987\\QuizWindow.xaml.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAFcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAAGUAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T15:13:36.974Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "QuizWindow.xaml",
               "DocumentMoniker": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\QuizWindow.xaml",
               "RelativeDocumentMoniker": "PROG6221_Part3_ST10440987\\QuizWindow.xaml",
               "ToolTip": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\QuizWindow.xaml",
               "RelativeToolTip": "PROG6221_Part3_ST10440987\\QuizWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-26T15:11:50.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T15:11:50.289Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Chatbot.cs",
               "DocumentMoniker": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\Chatbot.cs",
               "RelativeDocumentMoniker": "PROG6221_Part3_ST10440987\\Chatbot.cs",
               "ToolTip": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\Chatbot.cs",
               "RelativeToolTip": "PROG6221_Part3_ST10440987\\Chatbot.cs",
-              "ViewState": "AgIAAHIBAAAAAAAAAAAAABcCAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAJ0BAAAAAAAAAAAAAK4BAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T13:07:58.805Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PROG6221_Part3_ST10440987\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\MainWindow.xaml",
               "RelativeToolTip": "PROG6221_Part3_ST10440987\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-26T13:06:37.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T13:06:37.726Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "PROG6221_Part3_ST10440987\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\patri\\OneDrive\\Desktop\\PROG6221_FinalPoE_Part3\\PROG6221_Part3_ST10440987\\PROG6221_Part3_ST10440987\\MainWindow.xaml.cs",
               "RelativeToolTip": "PROG6221_Part3_ST10440987\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAAFMAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAJMAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T13:06:30.233Z",
               "EditorCaption": ""

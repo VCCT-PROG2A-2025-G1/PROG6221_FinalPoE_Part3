@@ -28,6 +28,7 @@ namespace PROG6221_Part3_ST10440987
             UserInput.Focus();
         }
 
+        // This method is called when the chatbot greets the user
         private async void ChatBotGreeting(object sender, RoutedEventArgs e)
         {
             ChatHistory.AppendText(chatbot.ChatBotFace() + "\n");
@@ -39,8 +40,10 @@ namespace PROG6221_Part3_ST10440987
             this.validName = true;
         }
 
+        // This method is called when the user clicks the Send button
         public void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            // if the user hits the send button without entering any text, the method returns
             string userInput = UserInput.Text.Trim();
             if (string.IsNullOrWhiteSpace(userInput))
             {
@@ -48,6 +51,7 @@ namespace PROG6221_Part3_ST10440987
             }
             ChatHistory.AppendText($"You: {userInput}\n");
 
+            // if user has entered a name, the chatbot will set the name and greet the user
             if (this.validName)
             {
                 chatbot.name = userInput;
@@ -61,6 +65,7 @@ namespace PROG6221_Part3_ST10440987
                 return;
             }
 
+            // if the user wants to mark a task as complete, they must type "mark as complete" and the chatbot will ask for the task number
             if (UserInput.Text.Trim().ToLower() == "mark as complete" && chatbot.tasks.Count > 0)
             {
                 this.taskCompleted = false;
@@ -71,6 +76,7 @@ namespace PROG6221_Part3_ST10440987
                 return;
             }
 
+            // The chatbot will then check if the user has already entered a task number to mark as complete
             if (!this.taskCompleted)
             {
                 this.taskCompleted = true;
@@ -95,6 +101,7 @@ namespace PROG6221_Part3_ST10440987
                 return;
             }
 
+            // if the user wants to delete a task, they must type "delete" and the chatbot will ask for the task number
             if (UserInput.Text.Trim().ToLower() == "delete" && chatbot.tasks.Count > 0)
             {
                 this.taskDeleted = false;
@@ -105,6 +112,7 @@ namespace PROG6221_Part3_ST10440987
                 return;
             }
 
+            // The chatbot will then check if the user has already entered a task number to delete
             if (!this.taskDeleted)
             {
                 this.taskDeleted = true;
@@ -136,6 +144,7 @@ namespace PROG6221_Part3_ST10440987
             UserInput.Focus();
         }
 
+        // This method is called when the user presses the Enter key in the UserInput TextBox
         private void Enter_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && !Keyboard.IsKeyDown(Key.LeftShift) && !Keyboard.IsKeyDown(Key.RightShift))
@@ -145,11 +154,12 @@ namespace PROG6221_Part3_ST10440987
             }
         }
 
+        // This method is called when the user clicks the View/Manage Tasks button
         public void ViewTasksButton_Click(object sender, RoutedEventArgs e)
         {
             if (chatbot.tasks.Count == 0)
             {
-                ChatHistory.AppendText("Chatbot: You currently do not have any existing tasks");
+                ChatHistory.AppendText("Chatbot: You currently do not have any existing tasks\n");
             }
             else
             {
@@ -170,13 +180,14 @@ namespace PROG6221_Part3_ST10440987
             UserInput.Focus();
         }
 
+        // This method is called when the user clicks the Play Quiz Game button
         public void QuizButton_Click(object sender, RoutedEventArgs e)
         {
             QuizWindow quiz = new QuizWindow(this, this.chatbot);
             quiz.Show();
             quiz.QuizHistory.AppendText($"Hi there {chatbot.name}! Welcome to the CyberSecurity quiz game.\n\nAbout the Game: This quiz consists of " +
                 $"10 questions, 5 multiple choice and 5 True or False questions.\n\nInstructions: You must answer by choosing which you think is correct. " +
-                $"For the multiple choice, just type a, b, c or d and true or false for the True or False questions.\n\nPlease hit the Submit Answer Button to start the Quiz.");
+                $"For the multiple choice, just type a, b, c or d and true or false for the True or False questions.\n\nPlease hit the Start Quiz Button to start the Quiz.");
             this.Hide();
         }
     }

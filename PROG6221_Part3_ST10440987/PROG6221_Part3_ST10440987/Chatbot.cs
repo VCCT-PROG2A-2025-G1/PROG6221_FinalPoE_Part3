@@ -45,6 +45,7 @@ namespace PROG6221_Part3_ST10440987
 
         public bool exitConfirmation = false;
 
+        // Declaring lists to store questions, answers, explanations, activity log, tasks, and the current task
         public List<string> questions;
         public List<string> answers;
         public List<string> explanations;
@@ -360,6 +361,7 @@ namespace PROG6221_Part3_ST10440987
                 }
             };
 
+            // Initializing the questions dictionary consisting of True/False and multiple choice questions
             this.questions = new List<string>
             {
                 "Which of the following is the strongest Password?\na) YourBirthdayYYYY\nb) Password123\nc) CeGrh67Ds$\nd) 12345678",
@@ -379,6 +381,7 @@ namespace PROG6221_Part3_ST10440987
                 "True or False:\nUsing the same password for multiple online accounts is a good way to remember them all easily."
             };
 
+            // Initializing the answers list with the correct answers for the questions
             this.answers = new List<string>
             {
                 "c",
@@ -393,6 +396,7 @@ namespace PROG6221_Part3_ST10440987
                 "false"
             };
 
+            // Initializing the explanations list with explanations for each answer
             this.explanations = new List<string>
             {
                 "Strong passwords use a mix of characters. 'CeGrh67Ds$' is complex and hard to guess.",
@@ -419,7 +423,8 @@ namespace PROG6221_Part3_ST10440987
                 return "Chatbot: " + this.name + ", please enter a valid input.";
             }
 
-            string showActivityLog = @"\b(show me what you have done|what have you done for me|(show|show me the) activity log)\b";
+            // If user inputs one of the regex patterns in showActivityLog, it will display the activity log
+            string showActivityLog = @"\b(show me what you have done|what have you done for me|((show|show me the) activity log))\b";
             Match matchActivity = Regex.Match(userInput.ToLower(), showActivityLog);
             if (matchActivity.Success)
             {
@@ -439,18 +444,19 @@ namespace PROG6221_Part3_ST10440987
                 }
             }
 
+            // If the user inputs yes, the chatbot will ask user for a reminder to set for the task and if no, it will add the task without a reminder
             if (this.currentTask != null && this.awaitingReminder == "askYesOrNo")
             {
                 if (userInput.ToLower().Contains("yes") || userInput.ToLower().Contains("y"))
                 {
                     this.awaitingReminder = "awaitingReminderTime";
-                    //this.activityLog.Add($"Task Added: {this.currentTask.title} for {this.currentTask.reminderText}");
+                    this.activityLog.Add($"Task Added: {this.currentTask.title} for {this.currentTask.reminderText}");
                     return "Chatbot: Great, what reminder would you like to add to this task? (E.g: 7 days or 4 hours)";
                 }
                 else if (userInput.ToLower().Contains("no") || userInput.ToLower().Contains("n"))
                 {
                     this.awaitingReminder = "none";
-                    //this.activityLog.Add($"Task Added: {this.currentTask.title} with {this.currentTask.reminderText}");
+                    this.activityLog.Add($"Task Added: {this.currentTask.title} with {this.currentTask.reminderText}");
                     this.currentTask = null;
                     return "Chatbot: Not a problem, your task has then been successfully added without a reminder";
                 }
@@ -460,6 +466,7 @@ namespace PROG6221_Part3_ST10440987
                 }
             }
 
+            // The user can set the reminder either as a date or as a time (e.g. 5 days or 2 hours)
             if (this.currentTask != null && this.awaitingReminder == "awaitingReminderTime")
             {
                 this.currentTask.reminderText = userInput.Trim();
@@ -501,13 +508,15 @@ namespace PROG6221_Part3_ST10440987
                 return $"Chatbot: Reminder set for your task '{title}'. Click the View/Manage Tasks button to see your existing tasks.";
             }
 
+            // If users input matches the regex patterns in userRequests, the chatbot will either add a task  if they say add task and ask if user wants to set a reminder
+            // or it will automatically add the task and immediately ask them for a reminder to set for the task if they have said set a reminder or remind me
             string userRequests = @"\b((add|add a) task|task|(set a|set) reminder|remind me|remind|reminder|(add|add a) reminder|quiz)\b";
             Match match = Regex.Match(userInput.ToLower(), userRequests);
             if (match.Success)
             {
                 if (match.Value == "quiz")
                 {
-                    return "Please click the 'Start Quiz' Button to do a quiz on Cybersecurity";
+                    return "Please click the 'Play Quiz Game' Button to do a quiz on Cybersecurity";
                 }
 
                 string actualTask = userInput.ToLower().Substring(match.Index + match.Length).Trim();
@@ -543,6 +552,7 @@ namespace PROG6221_Part3_ST10440987
                 }
             }
 
+            // If the user inputs 'yes' or 'no', the chatbot will respond accordingly based on the exitConfirmation flag
             if (this.exitConfirmation)
             {
                 if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
@@ -573,6 +583,7 @@ namespace PROG6221_Part3_ST10440987
                 }
             }
 
+            // If the users input contains the word talked, the chatbot will respond with the topics discussed so far
             if (userInput.Contains("talked"))
             {
                 return $"Chatbot: We have talked about the following topics: {string.Join(", ", this.userInterests)}";

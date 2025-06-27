@@ -42,6 +42,7 @@ namespace PROG6221_Part3_ST10440987
             this.mainWindow = mainWindow;
         }
 
+        // this method is called when the user clicks the "Start Quiz" button
         public void StartQuizButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.currentQuestionIndex == -1)
@@ -51,14 +52,18 @@ namespace PROG6221_Part3_ST10440987
             }
         }
 
+        // this method is called when the user clicks the "Submit Answer" button
         public void SubmitAnswerButton_Click(object sender, RoutedEventArgs e)
         {
+            // if the user has not started the quiz, the chatbot then informs the user to start the quiz first
             if (this.currentQuestionIndex == -1)
             {
                 QuizHistory.AppendText("Click 'Start Quiz' Button to start Quiz");
                 return;
             }
 
+            // if the user answers question correctly, the chatbot informs the user that the answer is correct and increments the score and if not, then informs
+            // the user of the correct answer and explanation
             if (UserAnswer.Text.Trim().ToLower() == this.answers[this.currentQuestionIndex].ToLower())
             {
                 QuizHistory.AppendText("That is the Correct Answer. Well done!");
@@ -74,6 +79,7 @@ namespace PROG6221_Part3_ST10440987
             this.NextQuestion();
         }
 
+        // this method is called when the user presses the Enter key in the UserAnswer TextBox
         private void Enter_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && !Keyboard.IsKeyDown(Key.LeftShift) && !Keyboard.IsKeyDown(Key.RightShift))
@@ -83,6 +89,7 @@ namespace PROG6221_Part3_ST10440987
             }
         }
 
+        // this method is called when the user clicks the "Back to Chatbot" button
         public void BackToChatbotButton_Click(object sender, RoutedEventArgs e)
         {
             this.chatbot.activityLog.Add($"Quiz Ended or Completed: {10 - this.remainingQuestionsIndex.Count} questions answered. {this.totalScore} out " +
@@ -92,6 +99,7 @@ namespace PROG6221_Part3_ST10440987
             mainWindow.UserInput.Focus();
         }
 
+        // this method is called to get the next question from the list of remaining questions
         private void NextQuestion()
         {
             if (this.remainingQuestionsIndex.Count == 0)
